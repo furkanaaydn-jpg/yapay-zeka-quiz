@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFCF0">
+  <meta name="description" content="Sunum sırasında yapay zekâ ajanlarının canlı hazırladığı kısa quiz.">
+  <title>Yapay Zekâ Mutfağı · Quiz</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body data-ekran="giris">
+  <main id="uygulama">
+
+    <section id="ekran-giris" class="ekran">
+      <div id="logo" aria-hidden="true">
+        <svg viewBox="0 0 120 120" width="112" height="112">
+          <g transform="translate(5 5)" fill="#FED3AF">
+            <path d="M34 72c-11 0-20-9-20-20s9-20 20-20c2 0 4 0 6 1 4-10 12-16 20-16s16 6 20 16c2-1 4-1 6-1 11 0 20 9 20 20s-9 20-20 20z"/>
+            <rect x="32" y="70" width="56" height="30" rx="6"/>
+          </g>
+          <path d="M34 72c-11 0-20-9-20-20s9-20 20-20c2 0 4 0 6 1 4-10 12-16 20-16s16 6 20 16c2-1 4-1 6-1 11 0 20 9 20 20s-9 20-20 20" fill="#FFFCF0" stroke="#100F0F" stroke-width="4" stroke-linejoin="round"/>
+          <rect x="32" y="70" width="56" height="30" rx="6" fill="#FFFCF0" stroke="#100F0F" stroke-width="4"/>
+          <rect x="34" y="78" width="52" height="9" fill="#BC5215"/>
+          <path d="M48 50v14M60 44v20M72 50v14" stroke="#100F0F" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M98 22l6-6M102 34h8M90 14v-8" stroke="#BC5215" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1 id="baslik">Yapay Zekâ Mutfağı</h1>
+      <p id="giris-metni">Sunumu ne kadar dikkatli dinlediniz? Hadi görelim.</p>
+      <p id="giris-bilgi">10 soru · her soru 20 saniye</p>
+      <button id="basla-btn" class="btn btn-ana" type="button">Başla</button>
+      <p id="yapim-notu">Bu quiz'i sunum sırasında bir baş şef ve dört yardımcı aşçı, yani yapay zekâ ajanları, canlı olarak hazırladı.</p>
+    </section>
+
+    <section id="ekran-soru" class="ekran" hidden>
+      <header class="soru-ust">
+        <span id="soru-sayac">1 / 10</span>
+        <span id="puan">0 doğru</span>
+      </header>
+      <ol id="ilerleme" aria-hidden="true"></ol>
+      <div id="sure-kutu" style="--kalan: 1">
+        <div id="sure-cubugu"></div>
+        <span id="sure">20</span>
+      </div>
+      <p id="soru-rozeti" class="rozet" hidden>Salondan gelen soru</p>
+      <p id="soru-konu" hidden>Konu</p>
+      <h2 id="soru-metni">Soru metni</h2>
+      <div id="siklar"></div>
+      <div id="geri-bildirim" hidden aria-live="polite">
+        <p id="geri-bildirim-baslik">Doğru!</p>
+        <p id="aciklama">Açıklama</p>
+        <button id="sonraki-btn" class="btn btn-ana" type="button">Sonraki soru</button>
+      </div>
+    </section>
+
+    <section id="ekran-sonuc" class="ekran" hidden>
+      <p class="sonuc-etiket">Sonuç</p>
+      <p id="sonuc-puan">0 / 10</p>
+      <h2 id="sonuc-unvan">Unvan</h2>
+      <p id="sonuc-aciklama">Açıklama</p>
+      <section id="rol-karti" data-rol="" data-renk="turuncu" hidden>
+        <p class="rol-ust">Mutfaktaki rolün</p>
+        <h3 id="rol-adi">Rol</h3>
+        <p id="rol-aciklama">Açıklama</p>
+        <p id="rol-yz">Yapay zekâdaki karşılığı</p>
+        <p id="rol-istatistik">İstatistik</p>
+      </section>
+      <div class="sonuc-butonlar">
+        <button id="paylas-btn" class="btn" type="button">Paylaş</button>
+        <button id="tekrar-btn" class="btn btn-ana" type="button">Tekrar oyna</button>
+      </div>
+      <p id="paylas-mesaj" role="status" aria-live="polite"></p>
+      <details id="cevap-anahtari">
+        <summary>Cevap anahtarı</summary>
+        <ol id="cevap-listesi"></ol>
+      </details>
+    </section>
+
+  </main>
+  <div id="konfeti" aria-hidden="true"></div>
+  <script src="sorular.js"></script>
+  <script src="oyun.js"></script>
+</body>
+</html>
